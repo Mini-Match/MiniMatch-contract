@@ -1,0 +1,50 @@
+{
+  "name": "wagmi",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "ui:dev": "node scripts/ui.js branch=dev",
+    "ui:prod": "node scripts/ui.js branch=prod",
+    "v2:prod": "node scripts/upload.js branch=prod",
+    "v2:dev": "node scripts/upload.js branch=dev",
+    "compile": "hardhat compile --force",
+    "test": "hardhat test",
+    "verify": "hardhat verify --constructor-args arguments.js --network",
+    "copy": "rm .env && cp .env.example .env",
+    "deployContractsOnGoerli": "npm run compile && npm run deploy:token goerli && npm run deploy:goerli && npm run generateABI goerli",
+    "deploy": "hardhat deploy --tags Main --network",
+    "deploy:token": "hardhat deploy --tags SampleToken --network",
+    "placeBet": "hardhat placeBet --network",
+    "invest": "hardhat invest --network",
+    "finishGame": "hardhat finishGame --network",
+    "terminateGame": "hardhat terminateGame --network",
+    "findWinner": "hardhat findWinner --network",
+    "claimHouse": "hardhat claimHouse --network",
+    "claimInvestor": "hardhat claimInvestor --network",
+    "generateABI": "hardhat export --export GameAPI.json --network",
+    "start-staging": "PORT=3004 next start"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@openzeppelin/contracts": "^5.0.2",
+    "firebase-admin": "^12.0.0",
+    "hardhat": "^2.13.0",
+    "hardhat-deploy": "^0.11.25",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13",
+    "mocha": "^10.2.0",
+    "openzeppelin-contracts": "^4.0.0",
+    "solmate": "^6.2.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-foundry": "^1.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@nomiclabs/hardhat-waffle": "^2.0.5",
+    "chai": "^4.2.0",
+    "dotenv": "^16.0.1",
+    "eslint": "8.17.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethers": "^5.7.2",
+    "typescript": "^5.3.3"
+  }
+}

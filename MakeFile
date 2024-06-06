@@ -1,0 +1,15 @@
+-include .env
+.EXPORT_ALL_VARIABLES:
+MAKEFLAGS += --no-print-directory
+
+
+install:
+	npm install
+	foundryup
+	forge install
+
+contracts:
+	FOUNDRY_TEST=/dev/null forge build --via-ir --extra-output-files irOptimized --sizes --force
+
+
+.PHONY: contracts test coverage

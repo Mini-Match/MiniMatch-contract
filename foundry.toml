@@ -1,0 +1,7 @@
+[profile.default]
+src = 'contracts'
+test = 'test/forge'
+out = 'out'
+libs = ['lib']
+cache_path  = 'cache_forge'
+via-ir = true
